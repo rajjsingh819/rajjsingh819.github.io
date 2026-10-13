@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Raj Singh | Data & Business Analytics</title>
+<meta name="description" content="Raj Singh, B.Tech student in AI & ML, building SQL, Power BI and Python analytics projects. Looking for a data or business analytics internship.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#050B1C;--panel:#0B1630;--ink:#EAF1FF;--muted:#9DB0D0;--line:#1D366B;--link:#4C9BFF;--kw:#7CC4FF;--code:#081125;
+  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+}
+:root[data-theme="light"]{--bg:#EEF2F6;--panel:#FFFFFF;--ink:#14202E;--muted:#566474;--line:#CBD5DF;--link:#1B4DCC;--kw:#B4570A;--code:#F7F9FB}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1rem/1.6 "Schibsted Grotesk",system-ui,-apple-system,"Segoe UI",sans-serif}
+a{color:var(--link);text-underline-offset:3px}
+a:focus-visible{outline:2px solid var(--link);outline-offset:3px;border-radius:2px}
+.wrap{display:grid;grid-template-columns:300px minmax(0,1fr);max-width:1180px;margin:0 auto}
+aside{position:sticky;top:0;align-self:start;height:100vh;padding:3rem 2rem;border-right:1px solid var(--line);display:flex;flex-direction:column;gap:1.5rem}
+.brand{font-size:1.5rem;line-height:1.1;font-weight:700;letter-spacing:-.01em}
+aside p{margin:0;color:var(--muted)}
+nav{display:flex;flex-direction:column;gap:.35rem}
+nav a{color:var(--ink);text-decoration:none;padding:.2rem 0;border-left:2px solid transparent;padding-left:.75rem}
+nav a:hover{border-left-color:var(--link)}
+.contact{margin-top:auto;display:flex;flex-direction:column;gap:.3rem;font-size:.95rem}
+main{padding:3rem 2.5rem 5rem;display:flex;flex-direction:column;gap:4rem;min-width:0}
+h2{font-size:1.5rem;margin:0 0 1.25rem;letter-spacing:-.01em}
+.query{background:var(--code);border:1px solid var(--line);border-radius:6px;overflow-x:auto}
+pre{margin:0;padding:1.1rem 1.25rem;font:400 .95rem/1.7 "JetBrains Mono",ui-monospace,Menlo,monospace}
+.k{color:var(--kw);font-weight:500}
+.res{border-top:1px solid var(--line);width:100%;border-collapse:collapse;font-size:.92rem}
+.res th,.res td{text-align:left;padding:.6rem 1.25rem;white-space:nowrap}
+.res th{color:var(--muted);font-weight:500;border-bottom:1px solid var(--line)}
+.lead{font-size:1.2rem;max-width:60ch;margin:1.5rem 0 0}
+.rows{border-top:1px solid var(--line)}
+.row{display:grid;grid-template-columns:1.1fr 1.6fr;gap:.5rem 2rem;padding:1.25rem 0;border-bottom:1px solid var(--line)}
+.row h3{margin:0;font-size:1.05rem}
+.row .meta{color:var(--muted);font-size:.9rem;margin-top:.15rem}
+.row p{margin:0;max-width:65ch}
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.5rem 2rem}
+.skills h3{font-size:.95rem;margin:0 0 .3rem;color:var(--muted);font-weight:500}
+.skills p{margin:0}
+.certs{columns:2 300px;column-gap:2.5rem;margin:0;padding:0;list-style:none}
+.certs li{break-inside:avoid;padding:.45rem 0;border-bottom:1px solid var(--line)}
+.certs small{display:block;color:var(--muted)}
+.edu{max-width:60ch}
+.edu p{margin:.2rem 0 0;color:var(--muted)}
+.cert{all:unset;box-sizing:border-box;display:block;width:100%;cursor:pointer;padding:.45rem 0}
+.cert span{color:var(--link);text-decoration:underline;text-underline-offset:3px}
+.cert small{display:block;color:var(--muted)}
+.cert:hover span{text-decoration-thickness:2px}
+.cert:focus-visible{outline:2px solid var(--link);outline-offset:2px}
+.certs li{padding:0}
+dialog{border:1px solid var(--line);border-radius:8px;background:var(--panel);color:var(--ink);padding:1rem;width:min(960px,94vw);max-height:92vh;overflow:auto}
+dialog::backdrop{background:rgba(8,14,22,.7)}
+dialog header{display:flex;justify-content:space-between;align-items:center;gap:1rem;margin-bottom:.75rem}
+dialog h3{margin:0;font-size:1.05rem}
+dialog button.x{font:inherit;color:var(--ink);background:none;border:1px solid var(--line);border-radius:4px;padding:.3rem .8rem;cursor:pointer}
+dialog img{display:block;width:100%;height:auto;border-radius:4px}
+.nav2{display:flex;justify-content:space-between;margin-top:.75rem}
+.nav2 button{font:inherit;color:var(--link);background:none;border:0;cursor:pointer;padding:.3rem 0}
+.ov{font:inherit;color:var(--link);background:none;border:1px solid var(--line);border-radius:4px;padding:.35rem .8rem;cursor:pointer}
+.ov:hover{border-color:var(--link)}
+.ov:focus-visible{outline:2px solid var(--link);outline-offset:2px}
+#pvb h4{margin:1.25rem 0 .25rem;font-size:1rem}
+#pvb p,#pvb ul,#pvb ol{margin:0;max-width:62ch}
+#pvb li{margin:.25rem 0}
+#pvb .m{color:var(--muted);margin-bottom:.5rem}
+.proj{cursor:pointer}
+.proj:hover h3{color:var(--link);text-decoration:underline;text-underline-offset:3px}
+.proj:focus-visible{outline:2px solid var(--link);outline-offset:2px}
+#pvb .lk{margin-top:1.5rem;display:flex;flex-wrap:wrap;gap:.5rem 1.25rem}
+.hero{font-size:clamp(2.4rem,6vw,4rem);line-height:1.05;margin:0;letter-spacing:-.03em}
+.tag{font-size:1.2rem;max-width:48ch;margin:1rem 0 1.5rem;color:var(--muted)}
+.btns{display:flex;flex-wrap:wrap;gap:.75rem}
+.btn{font:inherit;display:inline-block;text-decoration:none;cursor:pointer;color:var(--ink);background:none;border:1px solid var(--line);border-radius:6px;padding:.6rem 1.1rem}
+.btn:hover{border-color:var(--ink)}
+.btn.primary{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.btn:focus-visible{outline:2px solid var(--link);outline-offset:2px}
+.btn[hidden]{display:none}
+.cf{display:grid;grid-template-columns:1fr 1fr;gap:1rem;max-width:640px}
+.cf .full{grid-column:1/-1}
+.cf label{display:flex;flex-direction:column;gap:.3rem;font-size:.95rem;color:var(--muted)}
+.cf input,.cf textarea{font:inherit;color:var(--ink);background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:.6rem .75rem}
+.cf input:focus-visible,.cf textarea:focus-visible{outline:2px solid var(--link);outline-offset:1px}
+@media (max-width:560px){.cf{grid-template-columns:1fr}}
+.tt,.up{position:fixed;z-index:20;width:2.5rem;height:2.5rem;display:inline-flex;align-items:center;justify-content:center;color:var(--ink);background:var(--panel);border:1px solid var(--line);border-radius:50%;cursor:pointer;padding:0}
+.tt{top:calc(.75rem + env(safe-area-inset-top,0px));right:.75rem}
+.up{bottom:calc(1rem + env(safe-area-inset-bottom,0px));right:1rem}
+.up[hidden]{display:none}
+.tt:hover,.up:hover{border-color:var(--link)}
+.tt:focus-visible,.up:focus-visible{outline:2px solid var(--link);outline-offset:2px}
+.soc{display:flex;gap:.75rem;margin:1.25rem 0 0}
+.soc a{display:inline-flex;color:var(--ink);padding:.5rem;border:1px solid var(--line);border-radius:6px}
+.soc a:hover{border-color:var(--link);color:var(--link)}
+.hd{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;margin-bottom:1.25rem}
+.hd h2{margin:0}
+.ci{list-style:none;padding:0;margin:1.5rem 0 0;display:flex;flex-direction:column;gap:.75rem}
+.ci li{display:flex;align-items:center;gap:.6rem}
+.ci svg{flex:none;color:var(--link)}
+.fl{display:flex;flex-wrap:wrap;gap:.25rem 1.25rem;margin-bottom:.75rem}
+footer{color:var(--muted);font-size:.9rem}
+@media (max-width:860px){
+  .wrap{grid-template-columns:1fr}
+  aside{position:static;height:auto;border-right:0;border-bottom:1px solid var(--line);padding:2rem 1.25rem 1.5rem}
+  nav{flex-direction:row;flex-wrap:wrap;gap:.25rem 1rem}
+  nav a{border-left:0;padding-left:0}
+  .contact{margin-top:0}
+  main{padding:2rem 1.25rem 4rem;gap:3rem}
+  .row{grid-template-columns:1fr}
+}
+
+/* neon theme, matched to the reference image */
+:root{--accent:#2563EB;--glow:rgba(37,99,235,.38)}
+:root:not([data-theme="light"]) body{background:radial-gradient(900px 520px at 88% -8%,rgba(37,99,235,.2),transparent 62%),radial-gradient(700px 400px at -5% 40%,rgba(37,99,235,.1),transparent 65%),var(--bg);background-attachment:fixed}
+.gr{color:var(--link)}
+.hero .gr{text-shadow:0 0 30px var(--glow)}
+.hi{display:block;font-size:.4em;font-weight:500;letter-spacing:0;margin-bottom:.35rem}
+h2{display:flex;align-items:center;gap:.65rem}
+h2::before{content:"";flex:none;width:.3rem;height:1.1em;border-radius:3px;background:linear-gradient(var(--link),var(--accent));box-shadow:0 0 12px var(--glow)}
+#home{padding:2.5rem 2rem;border:1px solid var(--line);border-radius:16px;background:radial-gradient(60% 90% at 92% 15%,rgba(37,99,235,.25),transparent 70%),var(--panel)}
+.btn{border-color:var(--ink);border-radius:8px;transition:box-shadow .2s,border-color .2s}
+.btn:hover{border-color:var(--link);box-shadow:0 0 16px -2px var(--glow)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:#fff;box-shadow:0 0 20px var(--glow)}
+.btn.primary:hover{box-shadow:0 0 30px var(--glow);filter:brightness(1.12)}
+.soc a{color:var(--link);border-radius:8px}
+.soc a:hover{box-shadow:0 0 16px -2px var(--glow)}
+.query{border-radius:10px;box-shadow:0 0 34px -12px var(--glow)}
+.rows{border-top:0}
+.row{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:1.25rem 1.5rem;margin-bottom:1rem;transition:border-color .2s,box-shadow .2s}
+.row.proj:hover{border-color:var(--link);box-shadow:0 0 24px -6px var(--glow)}
+.skills>div{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:1rem 1.25rem}
+.skills h3{color:var(--link);font-weight:700}
+.certs li{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:.7rem 1rem;margin-bottom:.75rem;transition:border-color .2s,box-shadow .2s}
+.certs li:hover{border-color:var(--link);box-shadow:0 0 18px -6px var(--glow)}
+.cert{padding:0}
+.cf input,.cf textarea{border-radius:8px}
+.cf input:focus-visible,.cf textarea:focus-visible{outline:0;border-color:var(--link);box-shadow:0 0 0 3px var(--glow)}
+.tt,.up{box-shadow:0 0 16px -4px var(--glow)}
+dialog{border-radius:14px;box-shadow:0 0 50px -10px var(--glow)}
+footer{border-top:1px solid var(--line);padding-top:1.25rem}
+@media (min-width:861px){
+  html{scroll-padding-top:5rem}
+  .wrap{grid-template-columns:minmax(0,1fr);max-width:1240px}
+  aside{position:sticky;top:0;z-index:15;height:auto;flex-direction:row;align-items:center;gap:1.5rem;padding:.9rem 2rem;border-right:0;border-bottom:1px solid var(--line);background:color-mix(in srgb,var(--bg) 85%,transparent);backdrop-filter:blur(10px)}
+  aside>div:first-child p,.contact{display:none}
+  nav{flex-direction:row;flex-wrap:wrap;gap:.25rem 1.4rem;margin-left:auto;margin-right:3.25rem}
+  nav a{border-left:0;padding:.35rem 0;border-bottom:2px solid transparent}
+  nav a:hover{border-bottom-color:var(--link);color:var(--link)}
+  main{padding:2.5rem 2rem 5rem}
+}
+
+/* professional refinement */
+:root:not([data-theme="light"]){--bg:#0A0F1A;--panel:#0F1626;--ink:#E8EDF5;--muted:#94A3BA;--line:#1F2B45;--link:#6EA8FF;--kw:#8CBBFF;--code:#0B1220;--accent:#3B82F6;--glow:rgba(59,130,246,.16);--shadow:0 1px 2px rgba(0,0,0,.35)}
+:root[data-theme="light"]{--accent:#2563EB;--glow:rgba(37,99,235,.14);--shadow:0 1px 3px rgba(20,32,46,.1)}
+::selection{background:rgba(59,130,246,.35)}
+body{font-size:1.03rem;line-height:1.7;-webkit-font-smoothing:antialiased}
+:root:not([data-theme="light"]) body{background:radial-gradient(1000px 480px at 50% -12%,rgba(59,130,246,.11),transparent 62%),var(--bg);background-attachment:fixed}
+a{text-decoration-thickness:1px}
+a:hover{text-decoration-thickness:2px}
+main{gap:4.5rem}
+h2::before{display:none}
+h2{display:block;font-size:1.65rem;font-weight:700;letter-spacing:-.015em}
+main section>h2,.hd{padding-bottom:.8rem;border-bottom:1px solid var(--line);margin-bottom:1.5rem}
+.hd h2{padding:0;border:0;margin:0}
+#home{padding:3rem 2.5rem;border-radius:14px;box-shadow:var(--shadow);background:linear-gradient(135deg,rgba(59,130,246,.10),transparent 55%),var(--panel)}
+.hero{font-size:clamp(2.6rem,6vw,3.8rem);font-weight:700;letter-spacing:-.035em}
+.hero .gr{text-shadow:none}
+.hi{font-weight:500;color:var(--muted);font-size:.36em}
+.tag{font-size:1.15rem;line-height:1.6}
+.lead{font-size:1.1rem;color:var(--muted);margin-top:1.75rem}
+.btn{font-weight:500;padding:.7rem 1.3rem;border-color:var(--line);transition:transform .15s,border-color .15s,background .15s}
+.btn:hover{border-color:var(--link);box-shadow:none;transform:translateY(-1px)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:#fff;box-shadow:var(--shadow)}
+.btn.primary:hover{box-shadow:0 6px 16px -6px var(--glow);filter:brightness(1.08)}
+.soc a{border-color:var(--line);border-radius:8px;transition:border-color .15s,transform .15s}
+.soc a:hover{box-shadow:none;transform:translateY(-1px)}
+.query{box-shadow:none;border-radius:8px}
+.res th{text-transform:uppercase;font-size:.72rem;letter-spacing:.08em}
+.row,.skills>div,.certs li{border-color:var(--line);border-radius:10px;box-shadow:var(--shadow);transition:border-color .15s,transform .15s}
+.row{padding:1.4rem 1.6rem}
+.row.proj:hover,.certs li:hover{border-color:var(--link);box-shadow:var(--shadow);transform:translateY(-2px)}
+.row h3{font-size:1.1rem}
+.row .meta{margin-top:.25rem}
+.skills>div{padding:1.1rem 1.3rem}
+.skills h3{text-transform:uppercase;letter-spacing:.08em;font-size:.72rem;margin-bottom:.45rem}
+.certs li{padding:.8rem 1.1rem}
+.cert span{text-decoration:none;font-weight:500;color:var(--ink)}
+.cert:hover span{color:var(--link);text-decoration:none}
+.cf label{font-weight:500;color:var(--muted)}
+.cf input,.cf textarea{padding:.7rem .85rem;border-radius:8px}
+.cf input:focus-visible,.cf textarea:focus-visible{box-shadow:0 0 0 3px var(--glow)}
+.ci li{font-size:1rem}
+@media (min-width:861px){
+  aside{padding:.85rem 2rem}
+  .brand{font-size:1.35rem}
+  nav a{font-size:.95rem;color:var(--muted);transition:color .15s,border-color .15s}
+  nav a:hover{color:var(--ink);border-bottom-color:var(--link)}
+}
+dialog{border-radius:12px;box-shadow:0 24px 60px -20px rgba(0,0,0,.6)}
+.tt,.up{box-shadow:var(--shadow)}
+footer{color:var(--muted)}
+.fl a{color:var(--muted);text-decoration:none}
+.fl a:hover{color:var(--ink)}
+
+/* real-life portfolio touches */
+.avail{display:inline-flex;align-items:center;gap:.55rem;font-size:.9rem;font-weight:500;color:var(--ink);border:1px solid var(--line);border-radius:999px;padding:.3rem .9rem;margin-bottom:1.25rem;background:rgba(34,197,94,.08)}
+.dot{width:.55rem;height:.55rem;border-radius:50%;background:#22C55E;box-shadow:0 0 0 0 rgba(34,197,94,.5);animation:pl 2s infinite}
+@keyframes pl{70%{box-shadow:0 0 0 7px rgba(34,197,94,0)}100%{box-shadow:0 0 0 0 rgba(34,197,94,0)}}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--line)}
+.st strong{display:block;font-size:1.9rem;line-height:1.1;letter-spacing:-.02em}
+.st span{color:var(--muted);font-size:.9rem}
+.chips{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:.45rem}
+.chips li{border:1px solid var(--line);border-radius:999px;padding:.2rem .75rem;font-size:.88rem;background:rgba(110,168,255,.07)}
+.chips.sm li{font-size:.8rem;padding:.12rem .6rem;color:var(--muted)}
+.row .meta{margin-top:.6rem}
+.tl{position:relative;padding:.2rem 0 .2rem 1.5rem;border-left:2px solid var(--line)}
+.tl::before{content:"";position:absolute;left:-.4rem;top:.55rem;width:.75rem;height:.75rem;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px var(--glow)}
+@media (max-width:640px){.stats{grid-template-columns:repeat(2,1fr)}}
+
+/* reference-style details, skill bars, timeline */
+.info{display:grid;margin:1.75rem 0 0;max-width:64ch}
+.info>div{display:grid;grid-template-columns:8rem 1fr;gap:1rem;padding:.7rem 0;border-bottom:1px solid var(--line)}
+.info dt{color:var(--muted);font-weight:500}
+.info dd{margin:0}
+.bars{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.1rem 2.5rem;margin-bottom:2rem}
+.bl{display:flex;justify-content:space-between;font-weight:500;margin-bottom:.4rem}
+.bl span:last-child{color:var(--muted)}
+.bt{height:.5rem;border-radius:999px;background:var(--line);overflow:hidden}
+.bt i{display:block;height:100%;border-radius:999px;background:linear-gradient(90deg,var(--accent),var(--link));animation:fill 1.1s ease-out}
+@keyframes fill{from{width:0}}
+.tl:not(:last-child){padding-bottom:1.75rem}
+.tl .when{font-size:.85rem;font-weight:500;color:var(--link);margin-bottom:.15rem}
+.more{margin-top:1.5rem;display:flex;flex-wrap:wrap;align-items:center;gap:1rem 1.5rem}
+.more p{margin:0;color:var(--muted)}
+@media (max-width:640px){.bars{grid-template-columns:1fr}.info>div{grid-template-columns:6.5rem 1fr}}
+
+/* black and amber look, matched to the reference recording */
+:root:not([data-theme="light"]){--bg:#000;--panel:#1B1B1B;--ink:#fff;--muted:#A0A0A0;--line:#2B2B2B;--link:#FBBF3B;--kw:#FBBF3B;--code:#0E0E0E;--accent:#FBBF3B;--glow:rgba(251,191,59,.2);--shadow:none}
+:root[data-theme="light"]{--bg:#FAF9F5;--panel:#FFFFFF;--ink:#161616;--muted:#5F5F5F;--line:#E4E1D6;--link:#8F5700;--kw:#8F5700;--code:#F4F2EA;--accent:#FBBF3B;--glow:rgba(251,191,59,.3);--shadow:0 1px 3px rgba(0,0,0,.08)}
+body,.btn,.cf input,.cf textarea,dialog button{font-family:"Poppins",system-ui,-apple-system,"Segoe UI",sans-serif}
+body{font-weight:300;line-height:1.75}
+:root:not([data-theme="light"]) body{background:var(--bg)}
+strong,dt,.bl,nav a,.cf label{font-weight:500}
+.btn{border-radius:999px;text-transform:uppercase;letter-spacing:.12em;font-size:.74rem;font-weight:600;padding:.85rem 1.7rem;color:var(--link);border:1px solid var(--accent);background:transparent}
+.btn:hover{background:var(--accent);color:#111;border-color:var(--accent);transform:translateY(-1px);filter:none}
+.btn.primary{background:var(--accent);color:#111;border-color:var(--accent);box-shadow:none}
+.btn.primary:hover{filter:brightness(1.08);box-shadow:0 8px 20px -8px var(--glow)}
+.ov,.nav2 button{font-family:inherit}
+aside{border-bottom:1px solid var(--line)}
+.brand{font-weight:800;color:var(--ink)}
+.brand .gr{color:var(--ink)}
+nav a{font-weight:400}
+nav a.on{color:var(--link);border-bottom-color:var(--accent)}
+nav a:hover{color:var(--link)}
+h2{text-align:center;font-size:2.3rem;font-weight:700;position:relative;isolation:isolate}
+h2[data-g]::after{content:attr(data-g);position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-size:clamp(3rem,11vw,5.5rem);font-weight:800;color:var(--ink);opacity:.05;white-space:nowrap;z-index:-1;pointer-events:none}
+main section>h2,.hd{border-bottom:0;padding-bottom:0;margin-bottom:2.5rem}
+.hd{flex-direction:column;align-items:center;gap:.5rem}
+.hd h2{margin:0}
+.hd>a{font-size:.9rem}
+#home{background:var(--panel);border:0;box-shadow:none;border-radius:8px}
+.hero{font-weight:800}
+.hi{font-weight:400}
+.query{background:var(--code);border-color:var(--line)}
+.row,.skills>div,.certs li,.tl{background:var(--panel);border:1px solid transparent;border-radius:8px;box-shadow:var(--shadow)}
+.row.proj:hover,.certs li:hover{border-color:var(--accent);transform:translateY(-2px)}
+.row.proj{grid-template-columns:150px minmax(0,1fr) minmax(0,1.6fr);align-items:start}
+.thumb{background:var(--bg);border-radius:6px;overflow:hidden;aspect-ratio:8/5;align-self:start}
+.thumb svg{display:block;width:100%;height:100%}
+.ta{fill:var(--accent)}
+.ta.ho{opacity:.4}
+.td{fill:var(--line)}
+.ts{fill:none;stroke:var(--accent);stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+.chips li{background:transparent;border-color:var(--line);color:var(--muted)}
+.skills h3{color:var(--link)}
+.bt{height:.5rem;border-radius:3px;background:var(--line)}
+.bt i{background:var(--accent);border-radius:3px}
+.bl span:last-child{color:var(--link)}
+.info dt{color:var(--ink);font-weight:600}
+.info dd{color:var(--muted)}
+.tl{padding:1.5rem 1.6rem;border-left:1px solid transparent}
+.tl::before{display:none}
+.tl:not(:last-child){padding-bottom:1.5rem;margin-bottom:1rem}
+.tl .when{font-size:1.35rem;font-weight:700;color:var(--link);margin-bottom:.25rem}
+.st{background:var(--bg);border-radius:8px;padding:1.1rem;text-align:center}
+.st strong{color:var(--link);font-weight:700}
+.stats{border-top:0;padding-top:0}
+.more{flex-direction:column;justify-content:center;text-align:center;gap:1.25rem;padding:4rem 1.5rem;border-radius:8px;background:linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.65)),url("data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%201200%20320%22%20preserveAspectRatio=%22xMidYMid%20slice%22%3E%3Cdefs%3E%3ClinearGradient%20id=%22g%22%20x1=%220%22%20y1=%220%22%20x2=%220%22%20y2=%221%22%3E%3Cstop%20offset=%220%22%20stop-color=%22%2314110a%22/%3E%3Cstop%20offset=%221%22%20stop-color=%22%23050505%22/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect%20width=%221200%22%20height=%22320%22%20fill=%22url%28%23g%29%22/%3E%3Ccircle%20cx=%2230%22%20cy=%2230%22%20r=%221.4%22%20fill=%22%23fff%22%20opacity=%22.18%22/%3E%3Ccircle%20cx=%2230%22%20cy=%2275%22%20r=%221.4%22%20fill=%22%23fff%22%20opacity=%22.18%22/%3E%3Ccircle%20cx=%2230%22%20cy=%22120%22%20r=%221.4%22%20fill=%22%23fff%22%20opacity=%22.18%22/%3E%3Ccircle%20cx=%2230%22%20cy=%22165%22%20r=%221.4%22%20fill=%22%23fff%22%20opacity=%22.18%22/%3E%3Ccircle%20cx=%2290%22%20cy=%2230%22%20r=%221.4%22%20fill=%22%23fff%22%20opacity=%22.18%22/%3E%3Ccircle%20cx=%2290%22%20cy=%2275%22%20r=%221.4%22%20fill=%22%23fff%22%20opacity=%22.18%22/%3E%3Ccircle%20cx=%2290%22%20cy=%22120%22%20r=%221.4%22%20fill=%22%23fff%22%20opacity=%22.18%22/%3E%3Ccircle%20cx=%2290%22%20cy=%22165%22%20r=%221.4%22%20fill=%22%23fff%22%20opacity=%22.18%22/%3E%3Ccircle%20cx=%22150%22%20cy=%2230%22%20r=%221.4%22%20fill=%22%23fff%22%20opacity=%22.18%22/%3E%3Ccircle%20cx=%22150%22%20cy=%2275%22%20r=%221.4%22%20fill=%22%23fff%22%20opacity=%22.18%22/%3E%3Ccircle%20cx=%22150%22%20cy=%22120%22%20r=%221.4%22%20fill=%22%23fff%22%20opacity=%22.18%22/%3E%3Ccircle%20cx=%22150%22%20cy=%22165%22%20r=%221.4%22%20fill=%22%23fff%22%20opacity=%22.18%22/%3E%3Ccircle%20cx=%22210%22%20cy=%2230%22%20r=%221.4%22%20fill=%22%23fff%22%20opacity=%22.18%22/%3E%3Ccircle%20cx=%22210%22%20cy=%2275%22%20r=%221.4%22%20fill=%22%23fff%22%20opacity=%22.18%22/%3E%3Ccircle%20cx=%22210%22%20cy=%22120%22%20r=%221.4%22%20fill=%22%23fff%22%20opacity=%22.18%22/%3E%3Ccircle%20cx=%22210%22%20cy=%22165%22%20r=%221.4%22%20fill=%22%23fff%22%20opacity=%22.18%22/%3E%3Ccircle%20cx=%22270%22%20cy=%2230%22%20r=%221.4%22%20fill=%22%23fff%22%20opacity=%22.18%22/%3E%3Ccircle%20cx=%22270%22%20cy=%2275%22%20r=%221.4%22%20fill=%22%23fff%22%20opacity=%22.18%22/%3E%3Ccircle%20cx=%22270%22%20cy=%22120%22%20r=%221.4%22%20fill=%22%23fff%22%20opacity=%22.18%22/%3E%3Ccircle%20cx=%22270%22%20cy=%22165%22%20r=%221.4%22%20fill=%22%23fff%22%20opacity=%22.18%22/%3E%3Ccircle%20cx=%22330%22%20cy=%2230%22%20r=%221.4%22%20fill=%22%23fff%22%20opacity=%22.18%22/%3E%3Ccircle%20cx=%22330%22%20cy=%2275%22%20r=%221.4%22%20fill=%22%23fff%22%20opacity=%22.18%22/%3E%3Ccircle%20cx=%22330%22%20cy=%22120%22%20r=%221.4%22%20fill=%22%23fff%22%20opacity=%22.18%22/%3E%3Ccircle%20cx=%22330%22%20cy=%22165%22%20r=%221.4%22%20fill=%22%23fff%22%20opacity=%22.18%22/%3E%3Ccircle%20cx=%22390%22%20cy=%2230%22%20r=%221.4%22%20fill=%22%23fff%22%20opacity=%22.18%22/%3E%3Ccircle%20cx=%22390%22%20cy=%2275%22%20r=%221.4%22%20fill=%22%23fff%22%20opacity=%22.18%22/%3E%3Ccircle%20cx=%22390%22%20cy=%22120%22%20r=%221.4%22%20fill=%22%23fff%22%20opacity=%22.18%22/%3E%3Ccircle%20cx=%22390%22%20cy=%22165%22%20r=%221.4%22%20fill=%22%23fff%22%20opacity=%22.18%22/%3E%3Ccircle%20cx=%22450%22%20cy=%2230%22%20r=%221.4%22%20fill=%22%23fff%22%20opacity=%22.18%22/%3E%3Ccircle%20cx=%22450%22%20cy=%2275%22%20r=%221.4%22%20fill=%22%23fff%22%20opacity=%22.18%22/%3E%3Ccircle%20cx=%22450%22%20cy=%22120%22%20r=%221.4%22%20fill=%22%23fff%22%20opacity=%22.18%22/%3E%3Ccircle%20cx=%22450%22%20cy=%22165%22%20r=%221.4%22%20fill=%22%23fff%22%20opacity=%22.18%22/%3E%3Ccircle%20cx=%22510%22%20cy=%2230%22%20r=%221.4%22%20fill=%22%23fff%22%20opacity=%22.18%22/%3E%3Ccircle%20cx=%22510%22%20cy=%2275%22%20r=%221.4%22%20fill=%22%23fff%22%20opacity=%22.18%22/%3E%3Ccircle%20cx=%22510%22%20cy=%22120%22%20r=%221.4%22%20fill=%22%23fff%22%20opacity=%22.18%22/%3E%3Ccircle%20cx=%22510%22%20cy=%22165%22%20r=%221.4%22%20fill=%22%23fff%22%20opacity=%22.18%22/%3E%3Ccircle%20cx=%22570%22%20cy=%2230%22%20r=%221.4%22%20fill=%22%23fff%22%20opacity=%22.18%22/%3E%3Ccircle%20cx=%22570%22%20cy=%2275%22%20r=%221.4%22%20fill=%22%23fff%22%20opacity=%22.18%22/%3E%3Ccircle%20cx=%22570%22%20cy=%22120%22%20r=%221.4%22%20fill=%22%23fff%22%20opacity=%22.18%22/%3E%3Ccircle%20cx=%22570%22%20cy=%22165%22%20r=%221.4%22%20fill=%22%23fff%22%20opacity=%22.18%22/%3E%3Ccircle%20cx=%22630%22%20cy=%2230%22%20r=%221.4%22%20fill=%22%23fff%22%20opacity=%22.18%22/%3E%3Ccircle%20cx=%22630%22%20cy=%2275%22%20r=%221.4%22%20fill=%22%23fff%22%20opacity=%22.18%22/%3E%3Ccircle%20cx=%22630%22%20cy=%22120%22%20r=%221.4%22%20fill=%22%23fff%22%20opacity=%22.18%22/%3E%3Ccircle%20cx=%22630%22%20cy=%22165%22%20r=%221.4%22%20fill=%22%23fff%22%20opacity=%22.18%22/%3E%3Ccircle%20cx=%22690%22%20cy=%2230%22%20r=%221.4%22%20fill=%22%23fff%22%20opacity=%22.18%22/%3E%3Ccircle%20cx=%22690%22%20cy=%2275%22%20r=%221.4%22%20fill=%22%23fff%22%20opacity=%22.18%22/%3E%3Ccircle%20cx=%22690%22%20cy=%22120%22%20r=%221.4%22%20fill=%22%23fff%22%20opacity=%22.18%22/%3E%3Ccircle%20cx=%22690%22%20cy=%22165%22%20r=%221.4%22%20fill=%22%23fff%22%20opacity=%22.18%22/%3E%3Ccircle%20cx=%22750%22%20cy=%2230%22%20r=%221.4%22%20fill=%22%23fff%22%20opacity=%22.18%22/%3E%3Ccircle%20cx=%22750%22%20cy=%2275%22%20r=%221.4%22%20fill=%22%23fff%22%20opacity=%22.18%22/%3E%3Ccircle%20cx=%22750%22%20cy=%22120%22%20r=%221.4%22%20fill=%22%23fff%22%20opacity=%22.18%22/%3E%3Ccircle%20cx=%22750%22%20cy=%22165%22%20r=%221.4%22%20fill=%22%23fff%22%20opacity=%22.18%22/%3E%3Ccircle%20cx=%22810%22%20cy=%2230%22%20r=%221.4%22%20fill=%22%23fff%22%20opacity=%22.18%22/%3E%3Ccircle%20cx=%22810%22%20cy=%2275%22%20r=%221.4%22%20fill=%22%23fff%22%20opacity=%22.18%22/%3E%3Ccircle%20cx=%22810%22%20cy=%22120%22%20r=%221.4%22%20fill=%22%23fff%22%20opacity=%22.18%22/%3E%3Ccircle%20cx=%22810%22%20cy=%22165%22%20r=%221.4%22%20fill=%22%23fff%22%20opacity=%22.18%22/%3E%3Ccircle%20cx=%22870%22%20cy=%2230%22%20r=%221.4%22%20fill=%22%23fff%22%20opacity=%22.18%22/%3E%3Ccircle%20cx=%22870%22%20cy=%2275%22%20r=%221.4%22%20fill=%22%23fff%22%20opacity=%22.18%22/%3E%3Ccircle%20cx=%22870%22%20cy=%22120%22%20r=%221.4%22%20fill=%22%23fff%22%20opacity=%22.18%22/%3E%3Ccircle%20cx=%22870%22%20cy=%22165%22%20r=%221.4%22%20fill=%22%23fff%22%20opacity=%22.18%22/%3E%3Ccircle%20cx=%22930%22%20cy=%2230%22%20r=%221.4%22%20fill=%22%23fff%22%20opacity=%22.18%22/%3E%3Ccircle%20cx=%22930%22%20cy=%2275%22%20r=%221.4%22%20fill=%22%23fff%22%20opacity=%22.18%22/%3E%3Ccircle%20cx=%22930%22%20cy=%22120%22%20r=%221.4%22%20fill=%22%23fff%22%20opacity=%22.18%22/%3E%3Ccircle%20cx=%22930%22%20cy=%22165%22%20r=%221.4%22%20fill=%22%23fff%22%20opacity=%22.18%22/%3E%3Ccircle%20cx=%22990%22%20cy=%2230%22%20r=%221.4%22%20fill=%22%23fff%22%20opacity=%22.18%22/%3E%3Ccircle%20cx=%22990%22%20cy=%2275%22%20r=%221.4%22%20fill=%22%23fff%22%20opacity=%22.18%22/%3E%3Ccircle%20cx=%22990%22%20cy=%22120%22%20r=%221.4%22%20fill=%22%23fff%22%20opacity=%22.18%22/%3E%3Ccircle%20cx=%22990%22%20cy=%22165%22%20r=%221.4%22%20fill=%22%23fff%22%20opacity=%22.18%22/%3E%3Ccircle%20cx=%221050%22%20cy=%2230%22%20r=%221.4%22%20fill=%22%23fff%22%20opacity=%22.18%22/%3E%3Ccircle%20cx=%221050%22%20cy=%2275%22%20r=%221.4%22%20fill=%22%23fff%22%20opacity=%22.18%22/%3E%3Ccircle%20cx=%221050%22%20cy=%22120%22%20r=%221.4%22%20fill=%22%23fff%22%20opacity=%22.18%22/%3E%3Ccircle%20cx=%221050%22%20cy=%22165%22%20r=%221.4%22%20fill=%22%23fff%22%20opacity=%22.18%22/%3E%3Ccircle%20cx=%221110%22%20cy=%2230%22%20r=%221.4%22%20fill=%22%23fff%22%20opacity=%22.18%22/%3E%3Ccircle%20cx=%221110%22%20cy=%2275%22%20r=%221.4%22%20fill=%22%23fff%22%20opacity=%22.18%22/%3E%3Ccircle%20cx=%221110%22%20cy=%22120%22%20r=%221.4%22%20fill=%22%23fff%22%20opacity=%22.18%22/%3E%3Ccircle%20cx=%221110%22%20cy=%22165%22%20r=%221.4%22%20fill=%22%23fff%22%20opacity=%22.18%22/%3E%3Ccircle%20cx=%221170%22%20cy=%2230%22%20r=%221.4%22%20fill=%22%23fff%22%20opacity=%22.18%22/%3E%3Ccircle%20cx=%221170%22%20cy=%2275%22%20r=%221.4%22%20fill=%22%23fff%22%20opacity=%22.18%22/%3E%3Ccircle%20cx=%221170%22%20cy=%22120%22%20r=%221.4%22%20fill=%22%23fff%22%20opacity=%22.18%22/%3E%3Ccircle%20cx=%221170%22%20cy=%22165%22%20r=%221.4%22%20fill=%22%23fff%22%20opacity=%22.18%22/%3E%3Crect%20x=%2240%22%20y=%22250%22%20width=%2230%22%20height=%2270%22%20rx=%223%22%20fill=%22%23FBBF3B%22%20opacity=%22.13%22/%3E%3Crect%20x=%2290%22%20y=%22210%22%20width=%2230%22%20height=%22110%22%20rx=%223%22%20fill=%22%23FBBF3B%22%20opacity=%22.13%22/%3E%3Crect%20x=%22140%22%20y=%22230%22%20width=%2230%22%20height=%2290%22%20rx=%223%22%20fill=%22%23FBBF3B%22%20opacity=%22.13%22/%3E%3Crect%20x=%22190%22%20y=%22170%22%20width=%2230%22%20height=%22150%22%20rx=%223%22%20fill=%22%23FBBF3B%22%20opacity=%22.13%22/%3E%3Crect%20x=%22240%22%20y=%22200%22%20width=%2230%22%20height=%22120%22%20rx=%223%22%20fill=%22%23FBBF3B%22%20opacity=%22.13%22/%3E%3Crect%20x=%22290%22%20y=%22140%22%20width=%2230%22%20height=%22180%22%20rx=%223%22%20fill=%22%23FBBF3B%22%20opacity=%22.13%22/%3E%3Crect%20x=%22340%22%20y=%22180%22%20width=%2230%22%20height=%22140%22%20rx=%223%22%20fill=%22%23FBBF3B%22%20opacity=%22.13%22/%3E%3Crect%20x=%22390%22%20y=%22120%22%20width=%2230%22%20height=%22200%22%20rx=%223%22%20fill=%22%23FBBF3B%22%20opacity=%22.13%22/%3E%3Crect%20x=%22440%22%20y=%22160%22%20width=%2230%22%20height=%22160%22%20rx=%223%22%20fill=%22%23FBBF3B%22%20opacity=%22.13%22/%3E%3Crect%20x=%22490%22%20y=%22190%22%20width=%2230%22%20height=%22130%22%20rx=%223%22%20fill=%22%23FBBF3B%22%20opacity=%22.13%22/%3E%3Crect%20x=%22540%22%20y=%22150%22%20width=%2230%22%20height=%22170%22%20rx=%223%22%20fill=%22%23FBBF3B%22%20opacity=%22.13%22/%3E%3Crect%20x=%22590%22%20y=%22200%22%20width=%2230%22%20height=%22120%22%20rx=%223%22%20fill=%22%23FBBF3B%22%20opacity=%22.13%22/%3E%3Crect%20x=%22640%22%20y=%22170%22%20width=%2230%22%20height=%22150%22%20rx=%223%22%20fill=%22%23FBBF3B%22%20opacity=%22.13%22/%3E%3Crect%20x=%22690%22%20y=%22220%22%20width=%2230%22%20height=%22100%22%20rx=%223%22%20fill=%22%23FBBF3B%22%20opacity=%22.13%22/%3E%3Crect%20x=%22740%22%20y=%22230%22%20width=%2230%22%20height=%2290%22%20rx=%223%22%20fill=%22%23FBBF3B%22%20opacity=%22.13%22/%3E%3Crect%20x=%22790%22%20y=%22260%22%20width=%2230%22%20height=%2260%22%20rx=%223%22%20fill=%22%23FBBF3B%22%20opacity=%22.13%22/%3E%3Crect%20x=%22840%22%20y=%22210%22%20width=%2230%22%20height=%22110%22%20rx=%223%22%20fill=%22%23FBBF3B%22%20opacity=%22.13%22/%3E%3Crect%20x=%22890%22%20y=%22240%22%20width=%2230%22%20height=%2280%22%20rx=%223%22%20fill=%22%23FBBF3B%22%20opacity=%22.13%22/%3E%3Crect%20x=%22940%22%20y=%22250%22%20width=%2230%22%20height=%2270%22%20rx=%223%22%20fill=%22%23FBBF3B%22%20opacity=%22.13%22/%3E%3Crect%20x=%22990%22%20y=%22270%22%20width=%2230%22%20height=%2250%22%20rx=%223%22%20fill=%22%23FBBF3B%22%20opacity=%22.13%22/%3E%3Crect%20x=%221040%22%20y=%22230%22%20width=%2230%22%20height=%2290%22%20rx=%223%22%20fill=%22%23FBBF3B%22%20opacity=%22.13%22/%3E%3Crect%20x=%221090%22%20y=%22260%22%20width=%2230%22%20height=%2260%22%20rx=%223%22%20fill=%22%23FBBF3B%22%20opacity=%22.13%22/%3E%3Crect%20x=%221140%22%20y=%22280%22%20width=%2230%22%20height=%2240%22%20rx=%223%22%20fill=%22%23FBBF3B%22%20opacity=%22.13%22/%3E%3Crect%20x=%221190%22%20y=%22250%22%20width=%2230%22%20height=%2270%22%20rx=%223%22%20fill=%22%23FBBF3B%22%20opacity=%22.13%22/%3E%3Cpolyline%20fill=%22none%22%20stroke=%22%23FBBF3B%22%20stroke-width=%223%22%20opacity=%22.55%22%20points=%2220,230%20140,200%20260,215%20380,160%20500,175%20620,120%20740,140%20860,90%20980,110%201100,60%201180,75%22/%3E%3C/svg%3E") center/cover no-repeat}
+.more p{font-size:clamp(1.5rem,4vw,2.2rem);font-weight:700;color:#fff}
+.ci svg{width:2.5rem;height:2.5rem;padding:.65rem;border-radius:50%;background:var(--panel);color:var(--link)}
+.ci{gap:1rem}
+.soc a{border:0;border-radius:50%;background:var(--panel);color:var(--link);padding:.75rem}
+.soc a:hover{background:var(--accent);color:#111}
+.tt,.up{background:var(--panel);color:var(--link);border-color:var(--line)}
+.cf input,.cf textarea{background:var(--panel);border-color:var(--line)}
+@media (max-width:860px){.row.proj{grid-template-columns:1fr}.thumb{max-width:240px}}
+
+/* live GitHub projects */
+.gh{margin-top:2.5rem}
+.gh>h3{text-align:center;font-size:1.25rem;margin:0 0 1.25rem}
+.ghg{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1rem}
+.gc{display:flex;flex-direction:column;gap:.6rem;background:var(--panel);border:1px solid transparent;border-radius:8px;padding:1.25rem;transition:border-color .15s,transform .15s}
+.gc:hover{border-color:var(--accent);transform:translateY(-2px)}
+.gc h4{margin:0;font-size:1.02rem;font-weight:600}
+.gc p{margin:0;color:var(--muted);font-size:.92rem;flex:1}
+.gc .ft{display:flex;justify-content:space-between;align-items:center;gap:.75rem;font-size:.85rem}
+@media (prefers-reduced-motion:reduce){.bt i{animation:none}.dot{animation:none}*,*::before,*::after{transition:none!important;scroll-behavior:auto!important}}
+@media (max-width:560px){#home{padding:2rem 1.25rem}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<aside>
+  <div>
+    <div class="brand">Raj <span class="gr">Singh</span></div>
+    <p style="margin-top:.6rem">Student of Computer Science and Engineering with specialization in Artificial Intelligence &amp; Machine Learning</p>
+  </div>
+  <nav aria-label="Sections">
+    <a href="#home">Home</a>
+    <a href="#about">About me</a>
+    <a href="#projects">Projects</a>
+    <a href="#skills">Technical Skills</a>
+    <a href="#certs">Certifications</a>
+    <a href="#education">Education</a>
+    <a href="#resume">Resume</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <div class="contact">
+    <a href="mailto:rajjsingh819@gmail.com?subject=Hello%20Raj" target="_blank" rel="noopener">rajjsingh819@gmail.com</a>
+    <a href="https://github.com/rajjsingh819" target="_blank" rel="noopener">GitHub</a>
+    <a href="https://www.linkedin.com/in/raj-singh-60452628a" target="_blank" rel="noopener">LinkedIn</a>
+  </div>
+</aside>
+
+<main id="top">
+  <section id="home" aria-label="Home">
+    <div class="avail"><span class="dot"></span>Available for internships</div>
+    <h1 class="hero"><span class="hi">Hi, I'm</span>Raj <span class="gr">Singh</span></h1>
+    <p class="tag">Student of Computer Science and Engineering, looking for a data or business analytics internship.</p>
+    <div class="btns">
+      <a class="btn primary" href="#projects">View projects</a>
+      <button type="button" class="btn" data-open-resume>View resume</button>
+      <a class="btn" href="#contact">Get in touch</a>
+      <button type="button" class="btn" id="dlh" hidden>Download Resume</button>
+    </div>
+    <div class="soc">
+      <a href="https://www.linkedin.com/in/raj-singh-60452628a" target="_blank" rel="noopener" aria-label="LinkedIn"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+      <a href="https://github.com/rajjsingh819" target="_blank" rel="noopener" aria-label="GitHub"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg></a>
+      <a href="mailto:rajjsingh819@gmail.com?subject=Hello%20Raj" target="_blank" rel="noopener" aria-label="Email"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></a>
+    </div>
+    <div style="height:2rem"></div>
+    <div class="query">
+<pre><span class="k">SELECT</span> name, degree, focus, looking_for
+<span class="k">FROM</span>   raj_singh
+<span class="k">WHERE</span>  status = 'open to work';</pre>
+      <table class="res">
+        <tr><th>name</th><th>degree</th><th>focus</th><th>looking_for</th></tr>
+        <tr><td>Raj Singh</td><td>B.Tech CSE, specialization in AI &amp; ML</td><td>Data &amp; business analytics</td><td>Internship</td></tr>
+      </table>
+    </div>
+    <p class="lead">I turn raw data into answers people can act on: clean it with Python and SQL, then show it in Power BI and Tableau. I'm a B.Tech student in Computer Science and Engineering, specializing in Artificial Intelligence and Machine Learning, at KIPM College of Engineering and Technology. I'm looking for a data or business analytics internship.</p>
+    <div class="stats">
+      <div class="st"><strong>5</strong><span>Projects</span></div>
+      <div class="st"><strong>1M+</strong><span>Records processed</span></div>
+      <div class="st"><strong>148K+</strong><span>Records analyzed</span></div>
+      <div class="st"><strong>14</strong><span>Certifications</span></div>
+    </div>
+  </section>
+
+  <section id="about">
+    <h2>About me</h2>
+    <p style="max-width:62ch;margin:0 0 .9rem">I am Raj Singh from Gorakhpur, Uttar Pradesh. I am a B.Tech student in Computer Science and Engineering, with a specialization in Artificial Intelligence and Machine Learning, at KIPM College of Engineering and Technology.</p>
+    <p style="max-width:62ch;margin:0 0 .9rem">My work is about data: cleaning it, finding patterns in it, and showing the results in clear dashboards. I have built projects with Python, SQL, Power BI and Tableau, along with machine learning projects.</p>
+    <p style="max-width:62ch;margin:0">Right now I am looking for an internship in data analytics or business analytics. In the future, I want to work as a data analyst or business analyst.</p>
+    <dl class="info">
+      <div><dt>Name</dt><dd>Raj Singh</dd></div>
+      <div><dt>Job role</dt><dd>Aspiring Data Analyst / Business Analyst</dd></div>
+      <div><dt>Address</dt><dd>Gorakhpur, Uttar Pradesh, India</dd></div>
+      <div><dt>Education</dt><dd>B.Tech in Computer Science and Engineering (AI &amp; ML), currently pursuing</dd></div>
+      <div><dt>Languages</dt><dd>Hindi, English</dd></div>
+      <div><dt>Skills</dt><dd>Python, SQL, Pandas, Power BI, Tableau, PostgreSQL, Apache Airflow</dd></div>
+      <div><dt>Interests</dt><dd>Data analysis, data visualization, machine learning, building data pipelines</dd></div>
+    </dl>
+    <div class="btns" style="margin-top:1.5rem"><a class="btn primary" href="#contact">Get in touch</a></div>
+  </section>
+
+  <section id="projects">
+    <div class="hd"><h2>Projects</h2><a href="https://github.com/rajjsingh819" target="_blank" rel="noopener">View all on GitHub</a></div>
+    <div class="rows">
+      <article class="row proj" data-p="0" role="button" tabindex="0" aria-haspopup="dialog"><div class="thumb"><svg viewBox="0 0 160 100" aria-hidden="true"><rect class="td" x="10" y="10" width="40" height="22" rx="3"/><rect class="ta" x="16" y="16" width="18" height="4" rx="2"/><rect class="td" x="60" y="10" width="40" height="22" rx="3"/><rect class="ta" x="66" y="16" width="18" height="4" rx="2"/><rect class="td" x="110" y="10" width="40" height="22" rx="3"/><rect class="ta" x="116" y="16" width="18" height="4" rx="2"/><rect class="ta" x="14" y="62" width="12" height="30" rx="2"/><rect class="ta" x="34" y="48" width="12" height="44" rx="2"/><rect class="ta" x="54" y="56" width="12" height="36" rx="2"/><rect class="ta" x="74" y="36" width="12" height="56" rx="2"/><rect class="ta" x="94" y="44" width="12" height="48" rx="2"/><rect class="ta" x="114" y="30" width="12" height="62" rx="2"/><rect class="ta" x="134" y="40" width="12" height="52" rx="2"/></svg></div>
+        <div><h3>Samsung Business Analytics Dashboard</h3><div class="meta"><ul class="chips sm"><li>Power BI</li></ul></div></div>
+        <div><p>Interactive dashboard covering KPIs, sales trends and product insights, built to support data-driven decisions.</p></div>
+      </article>
+      <article class="row proj" data-p="1" role="button" tabindex="0" aria-haspopup="dialog"><div class="thumb"><svg viewBox="0 0 160 100" aria-hidden="true"><circle class="ts" cx="20" cy="34" r="11"/><circle class="ts" cx="62" cy="34" r="11"/><circle class="ts" cx="104" cy="34" r="11"/><circle class="ts" cx="146" cy="34" r="11"/><path class="ts" d="M31 34h10"/><path class="ts" d="M73 34h10"/><path class="ts" d="M115 34h10"/><polyline class="ts" points="10,88 40,76 70,82 100,62 130,70 150,54"/></svg></div>
+        <div><h3>Smart Electricity Consumption Monitoring</h3><div class="meta"><ul class="chips sm"><li>Python</li><li>Pandas</li><li>PostgreSQL</li><li>Airflow</li><li>Tableau</li></ul></div></div>
+        <div><p>End-to-end ETL pipeline for 1M+ smart meter records. Airflow schedules the daily run, cutting manual effort by about 70%. A Tableau dashboard with 6+ views shows hourly trends and peak demand, pointing to 15–20% potential energy savings.</p></div>
+      </article>
+      <article class="row proj" data-p="2" role="button" tabindex="0" aria-haspopup="dialog"><div class="thumb"><svg viewBox="0 0 160 100" aria-hidden="true"><rect class="ta" x="10" y="80" width="11" height="10" rx="2"/><rect class="ta" x="24" y="72" width="11" height="18" rx="2"/><rect class="ta" x="38" y="60" width="11" height="30" rx="2"/><rect class="ta" x="52" y="46" width="11" height="44" rx="2"/><rect class="ta" x="66" y="34" width="11" height="56" rx="2"/><rect class="ta" x="80" y="42" width="11" height="48" rx="2"/><rect class="ta" x="94" y="56" width="11" height="34" rx="2"/><rect class="ta" x="108" y="68" width="11" height="22" rx="2"/><rect class="ta" x="122" y="76" width="11" height="14" rx="2"/><rect class="ta" x="136" y="82" width="11" height="8" rx="2"/><rect class="td" x="8" y="90" width="144" height="2"/></svg></div>
+        <div><h3>San Francisco Employee Salary Analysis</h3><div class="meta"><ul class="chips sm"><li>Python</li><li>Pandas</li><li>NumPy</li><li>Jupyter</li></ul></div></div>
+        <div><p>Cleaned and analyzed 148K+ salary records, then explored pay distribution and trends across 1,000+ job titles.</p></div>
+      </article>
+      <article class="row proj" data-p="3" role="button" tabindex="0" aria-haspopup="dialog"><div class="thumb"><svg viewBox="0 0 160 100" aria-hidden="true"><rect class="ta" x="10" y="12" width="140" height="12" rx="3"/><rect class="td" x="10" y="30" width="140" height="10" rx="3"/><rect class="ta ho" x="10" y="46" width="140" height="10" rx="3"/><rect class="td" x="10" y="62" width="140" height="10" rx="3"/><rect class="td" x="10" y="78" width="140" height="10" rx="3"/></svg></div>
+        <div><h3>Data Analyst Portfolio: SQL Project</h3><div class="meta"><ul class="chips sm"><li>SQL</li></ul></div></div>
+        <div><p>A SQL project from my GitHub, built for my data analyst portfolio.</p></div>
+      </article>
+      <article class="row proj" data-p="4" role="button" tabindex="0" aria-haspopup="dialog"><div class="thumb"><svg viewBox="0 0 160 100" aria-hidden="true"><rect class="td" x="10" y="12" width="60" height="5" rx="2"/><rect class="td" x="10" y="22" width="38" height="5" rx="2"/><text x="80" y="76" text-anchor="middle" class="ta" font-size="44" font-weight="700" font-family="monospace">&lt;/&gt;</text></svg></div>
+        <div><h3>Python apps and ML experiments</h3><div class="meta"><ul class="chips sm"><li>Python</li><li>scikit-learn</li><li>TensorFlow</li></ul></div></div>
+        <div><p>Smaller builds: an expense tracker, a rule-based study chat assistant and a text editor. Machine learning work includes fake news detection (94% accuracy) and a medical cost prediction model using linear regression.</p></div>
+      </article>
+    </div>
+    <div class="gh" id="gh" hidden>
+      <h3>Latest on GitHub</h3>
+      <div class="ghg" id="ghg"></div>
+    </div>
+    <div class="more"><p>More of my work is on <span class="gr">GitHub</span></p><a class="btn primary" href="https://github.com/rajjsingh819" target="_blank" rel="noopener">Visit my GitHub</a></div>
+  </section>
+
+  <section id="skills">
+    <h2>Technical Skills</h2>
+    <div class="bars">
+      <div class="bar"><div class="bl"><span>Python</span><span>80%</span></div><div class="bt" role="progressbar" aria-label="Python" aria-valuemin="0" aria-valuemax="100" aria-valuenow="80"><i style="width:80%"></i></div></div>
+      <div class="bar"><div class="bl"><span>SQL</span><span>80%</span></div><div class="bt" role="progressbar" aria-label="SQL" aria-valuemin="0" aria-valuemax="100" aria-valuenow="80"><i style="width:80%"></i></div></div>
+      <div class="bar"><div class="bl"><span>Data Analysis</span><span>80%</span></div><div class="bt" role="progressbar" aria-label="Data Analysis" aria-valuemin="0" aria-valuemax="100" aria-valuenow="80"><i style="width:80%"></i></div></div>
+      <div class="bar"><div class="bl"><span>Data Visualization</span><span>75%</span></div><div class="bt" role="progressbar" aria-label="Data Visualization" aria-valuemin="0" aria-valuemax="100" aria-valuenow="75"><i style="width:75%"></i></div></div>
+      <div class="bar"><div class="bl"><span>Machine Learning</span><span>70%</span></div><div class="bt" role="progressbar" aria-label="Machine Learning" aria-valuemin="0" aria-valuemax="100" aria-valuenow="70"><i style="width:70%"></i></div></div>
+      <div class="bar"><div class="bl"><span>ETL and Data Pipelines</span><span>65%</span></div><div class="bt" role="progressbar" aria-label="ETL and Data Pipelines" aria-valuemin="0" aria-valuemax="100" aria-valuenow="65"><i style="width:65%"></i></div></div>
+    </div>
+    <div class="skills">
+      <div><h3>Analysis</h3><ul class="chips"><li>SQL</li><li>PostgreSQL</li><li>Python</li><li>Pandas</li><li>NumPy</li><li>EDA</li></ul></div>
+      <div><h3>Dashboards</h3><ul class="chips"><li>Power BI</li><li>Tableau</li><li>Matplotlib</li><li>Seaborn</li></ul></div>
+      <div><h3>Pipelines</h3><ul class="chips"><li>Apache Airflow</li><li>PySpark</li><li>Databricks</li><li>AWS Batch</li></ul></div>
+      <div><h3>Machine learning</h3><ul class="chips"><li>scikit-learn</li><li>TensorFlow</li><li>OpenCV</li><li>NLP</li></ul></div>
+    </div>
+  </section>
+
+  <section id="certs">
+    <h2>Certifications</h2>
+    <p style="margin:0 0 1rem;color:var(--muted)">Select a certification to view the certificate.</p>
+<ul class="certs">
+<li><button type="button" class="cert" data-i="0"><span>GenAI Powered Data Analytics Job Simulation</span><small>Tata, via Forage, March 2026</small></button></li>
+<li><button type="button" class="cert" data-i="1"><span>Introduction to SQL</span><small>Simplilearn SkillUp, March 2026</small></button></li>
+<li><button type="button" class="cert" data-i="2"><span>Power BI for Beginners</span><small>Simplilearn SkillUp, March 2026</small></button></li>
+<li><button type="button" class="cert" data-i="3"><span>Python Libraries for Data Science</span><small>Simplilearn SkillUp, March 2026</small></button></li>
+<li><button type="button" class="cert" data-i="4"><span>Advanced Python</span><small>Simplilearn SkillUp, March 2026</small></button></li>
+<li><button type="button" class="cert" data-i="5"><span>Machine Learning Using Python</span><small>Simplilearn SkillUp, February 2026</small></button></li>
+<li><button type="button" class="cert" data-i="6"><span>Deep Learning</span><small>Simplilearn SkillUp, February 2026</small></button></li>
+<li><button type="button" class="cert" data-i="7"><span>Get Started with Databricks for Data Engineering</span><small>Simplilearn SkillUp, March 2026</small></button></li>
+<li><button type="button" class="cert" data-i="8"><span>Introduction to AWS Batch</span><small>Simplilearn SkillUp, March 2026</small></button></li>
+<li><button type="button" class="cert" data-i="9"><span>Data Science &amp; Analytics</span><small>HP LIFE, August 2025</small></button></li>
+<li><button type="button" class="cert" data-i="10"><span>AI for Beginners</span><small>HP LIFE, August 2025</small></button></li>
+<li><button type="button" class="cert" data-i="11"><span>Agile Project Management</span><small>HP LIFE, August 2025</small></button></li>
+<li><button type="button" class="cert" data-i="12"><span>Effective Presentations</span><small>HP LIFE, August 2025</small></button></li>
+<li><button type="button" class="cert" data-i="13"><span>Web Development Fundamentals</span><small>IBM SkillsBuild, August 2025</small></button></li>
+</ul>
+  </section>
+
+  <section id="education" class="edu">
+    <h2>Education</h2>
+    <div class="tl"><div class="when">Currently pursuing</div><h3 style="margin:0">B.Tech, Computer Science and Engineering</h3>
+    <p>Specialization in Artificial Intelligence and Machine Learning<br>KIPM College of Engineering and Technology, Gorakhpur</p></div>
+    <div class="tl"><div class="when">Mar 2022 - Apr 2023</div><h3 style="margin:0">Intermediate</h3>
+    <p>CDMIC Manikapar, Gorakhpur, Uttar Pradesh</p></div>
+  </section>
+
+  <section id="resume">
+    <h2>Resume</h2>
+    <p style="max-width:55ch;margin:0 0 1rem">My one-page resume with my summary, skills, projects and education.</p>
+    <div class="btns">
+      <button type="button" class="btn primary" data-open-resume>View resume</button>
+      <button type="button" class="btn" id="dlr" hidden>Download PDF</button>
+    </div>
+    <p id="dlmsg" role="status" style="margin:.75rem 0 0;color:var(--muted)"></p>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p style="max-width:55ch;margin:0 0 1.25rem">Open to data analyst and business analyst internships. Send me a message and I will reply by email.</p>
+    <form id="cf" class="cf">
+      <label>Name<input name="name" required autocomplete="name"></label>
+      <label>Email<input name="email" type="email" required autocomplete="email"></label>
+      <label class="full">Subject<input name="subject" required></label>
+      <label class="full">Message<textarea name="message" rows="6" required></textarea></label>
+      <div class="full"><button type="submit" class="btn primary">Send message</button></div>
+      <p id="cfm" class="full" role="status" style="margin:0;color:var(--muted)"></p>
+    </form>
+    <div class="btns" style="margin-top:1.25rem"><button type="button" class="btn" id="dlc" hidden>Download Resume</button></div>
+    <ul class="ci">
+      <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><a href="mailto:rajjsingh819@gmail.com?subject=Hello%20Raj" target="_blank" rel="noopener">rajjsingh819@gmail.com</a></li>
+      <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg><a href="tel:+919682065366" target="_blank" rel="noopener">+91 96820 65366</a></li>
+      <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg><a href="https://www.linkedin.com/in/raj-singh-60452628a" target="_blank" rel="noopener">linkedin.com/in/raj-singh-60452628a</a></li>
+      <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg><a href="https://github.com/rajjsingh819" target="_blank" rel="noopener">github.com/rajjsingh819</a></li>
+      <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Gorakhpur, Uttar Pradesh, India</li>
+    </ul>
+  </section>
+
+  <footer><div class="fl"><a href="#home">Home</a><a href="#about">About me</a><a href="#projects">Projects</a><a href="#certs">Certifications</a><a href="#contact">Contact</a></div>Raj Singh</footer>
+</main>
+</div>
+<button type="button" class="tt" id="tt" aria-label="Switch between dark and light theme"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button>
+<button type="button" class="up" id="up" aria-label="Back to top" hidden><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="18 15 12 9 6 15"/></svg></button>
+<dialog id="cv" aria-labelledby="cvt">
+  <header><h3 id="cvt"></h3><button type="button" class="x" id="cvx">Close</button></header>
+  <img id="cvi" alt="">
+  <div class="nav2"><button type="button" id="cvp">Previous</button><button type="button" id="cvn">Next</button></div>
+</dialog>
+<script>
+var IMGS=["assets/certs/01-genai-powered-data-analytics-job-simulation.jpg","assets/certs/02-introduction-to-sql.jpg","assets/certs/03-power-bi-for-beginners.jpg","assets/certs/04-python-libraries-for-data-science.jpg","assets/certs/05-advanced-python.jpg","assets/certs/06-machine-learning-using-python.jpg","assets/certs/07-deep-learning.jpg","assets/certs/08-get-started-with-databricks-for-data-engineering.jpg","assets/certs/09-introduction-to-aws-batch.jpg","assets/certs/10-data-science-analytics.jpg","assets/certs/11-ai-for-beginners.jpg","assets/certs/12-agile-project-management.jpg","assets/certs/13-effective-presentations.jpg","assets/certs/14-web-development-fundamentals.jpg"];
+var NAMES=["GenAI Powered Data Analytics Job Simulation", "Introduction to SQL", "Power BI for Beginners", "Python Libraries for Data Science", "Advanced Python", "Machine Learning Using Python", "Deep Learning", "Get Started with Databricks for Data Engineering", "Introduction to AWS Batch", "Data Science & Analytics", "AI for Beginners", "Agile Project Management", "Effective Presentations", "Web Development Fundamentals"];
+(function(){
+  var dlg=document.getElementById('cv'),img=document.getElementById('cvi'),ttl=document.getElementById('cvt'),cur=0;
+  function show(i){cur=(i+IMGS.length)%IMGS.length;img.src=IMGS[cur];img.alt='Certificate: '+NAMES[cur];ttl.textContent=NAMES[cur];}
+  document.querySelectorAll('.cert').forEach(function(b){b.addEventListener('click',function(){show(+b.dataset.i);dlg.showModal();});});
+  document.getElementById('cvx').onclick=function(){dlg.close();};
+  document.getElementById('cvp').onclick=function(){show(cur-1);};
+  document.getElementById('cvn').onclick=function(){show(cur+1);};
+  dlg.addEventListener('click',function(e){if(e.target===dlg)dlg.close();});
+  dlg.addEventListener('keydown',function(e){if(e.key==='ArrowLeft')show(cur-1);if(e.key==='ArrowRight')show(cur+1);});
+})();
+</script>
+<dialog id="pv" aria-labelledby="pvt">
+  <header><h3 id="pvt"></h3><button type="button" class="x" id="pvx">Close</button></header>
+  <div id="pvb"></div>
+</dialog>
+<script>
+var PROJ=[{"t": "Samsung Business Analytics Dashboard", "m": "Power BI", "h": "\n<h4>What it is</h4><p>An interactive Power BI dashboard that shows how a Samsung business is performing, all on one screen.</p>\n<h4>Why I built it</h4><p>Raw sales numbers are hard to read. A manager needs to see what is selling, what is growing and what is falling, quickly. A dashboard does that better than a long table.</p>\n<h4>What it shows</h4><ul><li>Key numbers (KPIs) that sum up the business at a glance.</li><li>Sales trends over time, so you can see growth and slow periods.</li><li>Product insights, so you can see which products matter most.</li><li>Visuals that change as you interact with them.</li></ul>\n<h4>What I learned</h4><p>How to turn data into a clear story that helps people make decisions, instead of just showing numbers.</p>\n<h4>Tools</h4><p>Power BI</p>"}, {"t": "Smart Electricity Consumption Monitoring", "m": "Python, Pandas, PostgreSQL, Airflow, Tableau", "h": "\n<h4>What it is</h4><p>A complete data pipeline that takes raw electricity meter readings and turns them into a dashboard showing when and how energy is used.</p>\n<h4>The problem</h4><p>Smart meters create a huge amount of data. Here there were more than 1 million records in plain CSV files, which are hard to read and analyze by hand.</p>\n<h4>How it works, step by step</h4><ol><li><b>Collect:</b> read the raw CSV data.</li><li><b>Clean and prepare:</b> fix the data with Python and Pandas, and add time-based details such as hour and day.</li><li><b>Store:</b> load the cleaned data into a PostgreSQL database so queries run faster.</li><li><b>Automate:</b> use Apache Airflow to run all of this on a daily schedule, with no manual work.</li><li><b>Show:</b> build a Tableau dashboard with 6+ charts.</li></ol>\n<h4>What the dashboard shows</h4><p>Hourly usage trends, how much each appliance uses, and the peak demand periods.</p>\n<h4>Results</h4><ul><li>Automation reduced manual processing effort by about 70%.</li><li>The analysis pointed to 15-20% potential energy savings.</li></ul>\n<h4>Tools</h4><p>Python, Pandas, SQL, PostgreSQL, Apache Airflow, Tableau</p>"}, {"t": "San Francisco Employee Salary Analysis", "m": "Python, Pandas, NumPy, Jupyter", "h": "\n<h4>What it is</h4><p>An analysis of more than 148,000 salary records of San Francisco employees, to understand how people are paid.</p>\n<h4>The problem</h4><p>Large real-world datasets are messy. They have missing values and mixed information, so you cannot trust the numbers until the data is cleaned.</p>\n<h4>What I did</h4><ol><li><b>Cleaned the data:</b> handled missing values, which improved dataset quality by about 20%.</li><li><b>Explored the data (EDA):</b> looked at how salaries are spread, how roles differ, and how overtime trends behave.</li><li><b>Covered 1,000+ job titles</b> to compare pay across many roles.</li><li><b>Summarized the findings</b> into clear points, which made reporting about 30% faster.</li></ol>\n<h4>What I learned</h4><p>Good analysis starts with clean data. Most of the work is preparing the data, and the insights come after.</p>\n<h4>Tools</h4><p>Python, Pandas, NumPy, Jupyter Notebook</p>"}, {"t": "Data Analyst Portfolio: SQL Project", "m": "SQL", "h": "\n<h4>What it is</h4><p>A SQL project from my GitHub, built as part of my data analyst portfolio.</p>\n<h4>Why SQL</h4><p>SQL is the main tool analysts use to ask questions of a database. Being able to write queries that find the right data and summarize it is a core part of the job.</p>\n<h4>Where to see the details</h4><p>The full queries and the questions they answer are in the GitHub repository.</p>\n<h4>Tools</h4><p>SQL</p>"}, {"t": "Python apps and ML experiments", "m": "Python, scikit-learn, TensorFlow", "h": "\n<h4>Python apps</h4><ul><li><b>Expense tracker:</b> a small Python program to record and keep track of spending.</li><li><b>AI Study Buddy:</b> a rule-based chat assistant in Python that replies using fixed rules, not a trained model.</li><li><b>Text editor app:</b> a simple editor for writing and editing text.</li></ul>\n<h4>Machine learning projects</h4><ul><li><b>Fake news detection:</b> uses Logistic Regression and TF-IDF (which turns text into numbers). Trained on 40,000+ news articles and reached 94% accuracy.</li><li><b>Face mask detection:</b> a CNN built with TensorFlow and OpenCV that detects masks live through a webcam, with 96% accuracy.</li><li><b>House price prediction:</b> regression models in Scikit-learn, with feature engineering and data preprocessing.</li><li><b>NLP chatbot:</b> an intent-based chatbot built with NLTK and connected to a web interface.</li></ul>\n<h4>Medical cost prediction, step by step</h4><ol><li>Collect the insurance cost data.</li><li>Analyze the data to understand it.</li><li>Preprocess it so the model can use it.</li><li>Split it into training and testing parts.</li><li>Train a Linear Regression model.</li><li>Evaluate how well it predicts on the test data.</li><li>Use it to predict costs for new data.</li></ol>\n<h4>Tools</h4><p>Python, scikit-learn, TensorFlow, OpenCV, NLTK</p>"}];
+(function(){
+  var d=document.getElementById('pv'),b=document.getElementById('pvb'),t=document.getElementById('pvt');
+  var LINKS={0:[["Samsung Business Analytics Dashboard on GitHub","https://github.com/rajjsingh819/Samsung-Business-Analytics-Dashboard"]],
+3:[["SQL project on GitHub","https://github.com/rajjsingh819/DATA-ANALYST-PROTFOLIA-SQL-PROJECT"]],
+4:[["Expense tracker on GitHub","https://github.com/rajjsingh819/Expense-Tracker-MINI-PROJECT-"],["AI Study Buddy on GitHub","https://github.com/rajjsingh819/AI-STUDY-BUDDY-RULE-BASED-CHAT-ASSISTANT-IN-PYTHON-"],["Text editor on GitHub","https://github.com/rajjsingh819/TEXT-EDITOR-APP"]]};
+  function open(x){var n=+x.dataset.p,p=PROJ[n],l=(LINKS[n]||[]).map(function(k){return '<a href="'+k[1]+'" target="_blank" rel="noopener">'+k[0]+'</a>';}).join('');
+    t.textContent=p.t;b.innerHTML='<p class="m">'+p.m+'</p>'+p.h+(l?'<div class="lk">'+l+'</div>':'');d.scrollTop=0;d.showModal();}
+  document.querySelectorAll('.proj').forEach(function(x){
+    x.addEventListener('click',function(e){if(e.target.closest('a'))return;open(x);});
+    x.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();open(x);}});});
+  document.getElementById('pvx').onclick=function(){d.close();};
+  d.addEventListener('click',function(e){if(e.target===d)d.close();});
+})();
+</script>
+<dialog id="rv" aria-labelledby="rvt">
+  <header><h3 id="rvt">Resume: Raj Singh</h3><button type="button" class="x" id="rvx">Close</button></header>
+  <img src="assets/resume.jpg" alt="Resume of Raj Singh">
+  <div class="nav2"><span></span><button type="button" id="rvd" hidden>Download PDF</button></div>
+</dialog>
+<script>
+(function(){
+  var rv=document.getElementById('rv'),dls=[document.getElementById('dlr'),document.getElementById('rvd'),document.getElementById('dlh'),document.getElementById('dlc')],msg=document.getElementById('dlmsg'),dl=null;
+  document.querySelectorAll('[data-open-resume]').forEach(function(b){b.addEventListener('click',function(){rv.showModal();});});
+  document.getElementById('rvx').onclick=function(){rv.close();};
+  rv.addEventListener('click',function(e){if(e.target===rv)rv.close();});
+  var PDF='assets/Raj-Singh-Resume.pdf';
+  function plain(){var a=document.createElement('a');a.href=PDF;a.download='Raj-Singh-Resume.pdf';document.body.appendChild(a);a.click();a.remove();}
+  dls.forEach(function(b){if(b){b.hidden=false;b.onclick=plain;}});
+
+  var f=document.getElementById('cf'),m=document.getElementById('cfm');
+  var FORM_ENDPOINT='https://formspree.io/f/myezrrve';
+  function viaEmailApp(d){
+    var body='Name: '+d.get('name')+'\nEmail: '+d.get('email')+'\n\n'+d.get('message');
+    var a=document.createElement('a');
+    a.href='mailto:rajjsingh819@gmail.com?subject='+encodeURIComponent(d.get('subject'))+'&body='+encodeURIComponent(body);
+    a.target='_top';a.style.display='none';document.body.appendChild(a);a.click();a.remove();
+    m.textContent='Your email app should open with the message ready to send. If it does not, email rajjsingh819@gmail.com directly.';
+  }
+  f.addEventListener('submit',function(e){
+    e.preventDefault();
+    var d=new FormData(f);
+    if(!FORM_ENDPOINT){viaEmailApp(d);return;}
+    m.textContent='Sending...';
+    fetch(FORM_ENDPOINT,{method:'POST',body:d,headers:{'Accept':'application/json'}})
+      .then(function(r){if(!r.ok)throw 0;f.reset();m.textContent='Thank you, your message was sent. I will reply by email.';})
+      .catch(function(){viaEmailApp(d);});
+  });
+})();
+</script>
+<script>
+(function(){
+  var root=document.documentElement,tt=document.getElementById('tt'),up=document.getElementById('up');
+  var MOON='<path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/>',SUN='<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>';
+  function isDark(){var t=root.getAttribute('data-theme');return t?t==='dark':true;}
+  function icon(){tt.querySelector('svg').innerHTML=isDark()?SUN:MOON;}
+  try{var sv=localStorage.getItem('theme');if(sv==='dark'||sv==='light')root.setAttribute('data-theme',sv);}catch(e){}
+  icon();
+  tt.addEventListener('click',function(){var n=isDark()?'light':'dark';root.setAttribute('data-theme',n);try{localStorage.setItem('theme',n);}catch(e){}icon();});
+  window.addEventListener('scroll',function(){up.hidden=window.scrollY<500;},{passive:true});
+  up.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
+})();
+</script>
+<script>
+(function(){
+  document.querySelectorAll('main section>h2,.hd h2').forEach(function(h){h.setAttribute('data-g',h.textContent);});
+  var links=[].slice.call(document.querySelectorAll('nav a'));
+  if(!('IntersectionObserver' in window))return;
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){links.forEach(function(a){a.classList.toggle('on',a.getAttribute('href')==='#'+e.target.id);});}});},{rootMargin:'-40% 0px -55% 0px'});
+  links.forEach(function(a){var t=document.querySelector(a.getAttribute('href'));if(t)io.observe(t);});
+})();
+</script>
+<script>
+(function(){
+  var USER='rajjsingh819',MAX=6;
+  var FEATURED=['samsung-business-analytics-dashboard','data-analyst-protfolia-sql-project','expense-tracker-mini-project-','ai-study-buddy-rule-based-chat-assistant-in-python-','text-editor-app',USER.toLowerCase(),USER.toLowerCase()+'.github.io'];
+  var box=document.getElementById('gh'),grid=document.getElementById('ghg');
+  if(!box||!grid||!window.fetch)return;
+  function render(list){
+    var items=list.filter(function(r){return r&&!r.fork&&!r.archived&&FEATURED.indexOf(String(r.name).toLowerCase())<0&&/^https:\/\/github\.com\//.test(r.html_url||'');}).slice(0,MAX);
+    if(!items.length)return;
+    grid.textContent='';
+    items.forEach(function(r){
+      var c=document.createElement('article');c.className='gc';
+      var h=document.createElement('h4');h.textContent=String(r.name).replace(/[-_]+/g,' ').trim();c.appendChild(h);
+      var p=document.createElement('p');p.textContent=r.description||'See the repository for details.';c.appendChild(p);
+      var f=document.createElement('div');f.className='ft';
+      var l=document.createElement('span');l.className='chips sm';
+      if(r.language){var li=document.createElement('li');li.textContent=r.language;l.appendChild(li);}
+      f.appendChild(l);
+      var a=document.createElement('a');a.href=r.html_url;a.target='_blank';a.rel='noopener';a.textContent='View code';f.appendChild(a);
+      c.appendChild(f);grid.appendChild(c);
+    });
+    box.hidden=false;
+  }
+  var KEY='gh_repos_v1',cached=null;
+  try{var raw=sessionStorage.getItem(KEY);if(raw){var o=JSON.parse(raw);if(o&&Date.now()-o.t<600000)cached=o.d;}}catch(e){}
+  if(cached){render(cached);return;}
+  fetch('https://api.github.com/users/'+USER+'/repos?sort=updated&per_page=100',{headers:{'Accept':'application/vnd.github+json'}})
+    .then(function(r){if(!r.ok)throw 0;return r.json();})
+    .then(function(d){try{sessionStorage.setItem(KEY,JSON.stringify({t:Date.now(),d:d.map(function(r){return{name:r.name,description:r.description,language:r.language,html_url:r.html_url,fork:r.fork,archived:r.archived};})}));}catch(e){}render(d);})
+    .catch(function(){});
+})();
+</script>
+</body>
+</html>
